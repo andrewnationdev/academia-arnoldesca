@@ -133,7 +133,7 @@ const config = {
             ],
           },
           {
-            title: 'More',
+            title: 'Più Contenuti',
             items: [
               {
                 label: 'Blog',
@@ -146,7 +146,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Academia Arnoldesca, Construtto col Docusauros`,
       },
       prism: {
         theme: prismThemes.github,
