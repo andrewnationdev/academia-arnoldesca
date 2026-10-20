@@ -116,11 +116,11 @@ const config = {
             ],
           },
           {
-            title: 'Community',
+            title: 'Legami Interessanti',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Academia de la Lingua Aru',
+                href: 'https://thearusianlanguage.vercel.app/',
               },
               {
                 label: 'Discord',
