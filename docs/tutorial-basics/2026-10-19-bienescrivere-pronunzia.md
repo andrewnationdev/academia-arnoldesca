@@ -25,11 +25,11 @@ Li vocali innele sillabe toniche li han diacritici suso esse quando l'ultima sil
 | Grafema | Fonema        |
 | :------ | :------------ |
 | b       | /b/           |
-| c       | /ts~s/        |
+| c       | /tʃ~ʃ/, /k/        |
 | d       | /d/           |
 | f       | /f/           |
-| g       | /g/           |
-| h       | $\varnothing$ |
+| g       | /dʒ~ʒ/ /g/           |
+| h       | muta |
 | j       | /j/           |
 | l       | /l/           |
 | m       | /m/           |
