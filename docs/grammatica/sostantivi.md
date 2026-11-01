@@ -28,7 +28,7 @@ Li articoli li son quelli qui sotto:
 
 | Genero | Singolar       | Plural     |
 | ------ | -------------- | ---------- |
-| M      | il, el, lo, l' | li, gli, i |
+| M      | il, el, lo, l', i' | li, gli, i |
 | F      | la, l'         | le         |
 | N      | il, el, lo, l' | le, la     |
 

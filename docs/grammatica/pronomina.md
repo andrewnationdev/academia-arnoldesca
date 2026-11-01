@@ -5,7 +5,7 @@ Vi son dui tipi principali di pronomina: le pronomina indipendiente e quelle dip
 | Persone | Indipendiente                                                                        | Dipendiente | Possessiva |
 | ------- | ------------------------------------------------------------------------------------ | ----------- | ---------- |
 | P1      | eo                                                                                   | i           | -me        |
-| P2      | tu                                                                                   | tu, t'      | -te        |
+| P2      | tu, te                                                                                   | tu, t'      | -te        |
 | P3      | egli (masc. umano), ella (fem. umano), esso (masc. non-umano), essa (fem. non-umano) | el, l', la  | -se        |
 | P4      | noi, noialtri (escludiente)                                                          | no          | -ne        |
 | P5      | voi                                                                                  | vo          | -ve        |

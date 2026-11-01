@@ -18,6 +18,8 @@ Le preposizioni le son le parole che le collegan li elementi.
 | *en, in*         | *innel, innei, inneli, innelo, innela, innele* |
 | *en, in*         | *indel, indei, indeli, indelo, indela, indele* |
 
+El v'è preposizioni complessi che le si forman da li avverbi.. a.e.: ***intuorno a***.
+
 ## Avverbi
 
 Li avverbi li modifican li verbo o li aggettivi.
@@ -25,12 +27,12 @@ Li avverbi li modifican li verbo o li aggettivi.
 | Categoria         | Avverbi                                  |
 | ----------------- | ---------------------------------------- |
 | **Luoco**         | *qui, labassu, giù, là, lì*              |
-| **Tiempo**        | *mo, ormai, oramai*                      |
+| **Tiempo**        | *mo, ormai, oramai, stanotte*                      |
 | **Frequenza**     | *siempre*                                |
 | **Negazion**      | *non*                                    |
 | **Affirmazion**   | *sì*                                     |
 | **Possibilitade** | *fortasse, forsi, probabilmente*         |
-| **Maniera**       | *bien, male*                             |
+| **Maniera**       | *bien, male, suolo*                             |
 | **Interrogativi** | *come, ove, onde, donde, perché, quanto* |
 | **Quantiti**      |                                          |
 

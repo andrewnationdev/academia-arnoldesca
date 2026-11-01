@@ -17,3 +17,13 @@ hola:
   label: Hola
   permalink: /hola
   description: Hola tag description
+
+grammatica:
+  label: Grammatica
+  permalink: /grammatica
+  description: Grammatica de la lingua arnoldesco
+
+cultura:
+  label: Cultura
+  permalink: /cultura
+  description: Cultura arnoldesca
