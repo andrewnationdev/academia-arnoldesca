@@ -1,5 +1,13 @@
 # Evoluzione Fonologica
 
+## Vocalismo
+
+I' ditongamiento l'è più esteso inde l'arnoldeco de ciò ch'el si verifica indeli dialetti toscani innele vocali E ed O che l'eran toniche innelo latin: *biene* < BENE; *nuotte* < NOCTEM; *fuoco* < FOCUM; *siempre* < SEMPER; *puorta* < PORTAM.
+
+El v'è un rocesso di deletamiento de la vocale E finale dopo consonanti come L e N ch'el siembra essere collegato a la fonossintassi, secondo la consonante indela parola seguente. Ciò l'è, se la parola seguente la fuorma uma combinazion che non l'è possibile fonetticamiente, la E la rimane lì.
+
+Li dittongui antichi AE, OE ed AU li subiscen simpieficazion: a.e. *oro* od *uoro* < AURUM; *orechia* od *uorechia* < AURICULAM (in esto caso, l'affietta la parola i' fenomeno de la tendenza di dittongazion generalizzata). Qualche I e U tonichi od atoni li devegnen E ed O: a.e. *orechia* od *uorechia* < AURICULAM; *secco* < SICCUM; *verde* < VIRIDEM. Este quattro vocali le son instabili attravierso l'istoia de la lingua.
+
 ## Consonantismo
 
 Le consonanti finali le spariscen: REGEM > _rege_; AUT > _o_, _od_ (avanti parole che le comincian con vocale); JAM > _già_; MOX > _mo_.
