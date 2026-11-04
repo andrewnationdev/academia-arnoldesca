@@ -3,85 +3,64 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cinzel+Decorative:wght@700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=UnifrakturCook:wght@700&display=swap">
 <style>
-  /* Layout: coluna única estreita, cabeçalho fixo com busca e filtros, lista de verbetes agrupada por letra */
+  /* Layout: fólio emoldurado como página de manuscrito; faixa heráldica no topo, título, busca fixa, verbetes em duas colunas sob capitulares rubricadas */
   :root {
-    --bg: #f6f7f9;
-    --surface: #ffffff;
-    --fg: #14181f;
-    --muted: #5d6675;
-    --line: #e3e6ec;
-    --accent: #2f4bd8;
-    --accent-soft: #e8ecfd;
-    --font-display: "Newsreader", Georgia, "Times New Roman", serif;
-    --font-body: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    --bg: #d9cdb0;
+    --panel: #f3ebd5;
+    --ink: #2b2118;
+    --ink-soft: #6a5b46;
+    --line: #d2c4a1;
+    --gold: #a98a3a;
+    --rubric: #9f2a1d;
+    --lapis: #2b4a86;
+    --on-rubric: #f7f0dc;
+    --mark: #ecd98f;
+    --font-title: "Cinzel Decorative", "Cinzel", Georgia, serif;
+    --font-label: "Cinzel", "Trajan Pro", Georgia, serif;
+    --font-initial: "UnifrakturCook", "Cinzel", Georgia, serif;
+    --font-text: "EB Garamond", Garamond, "Times New Roman", serif;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0f1218;
-      --surface: #161a22;
-      --fg: #e9ecf2;
-      --muted: #98a1b2;
-      --line: #252b36;
-      --accent: #8fa2ff;
-      --accent-soft: #1d2340;
+      --bg: #100d0a;
+      --panel: #1b1611;
+      --ink: #eadfc3;
+      --ink-soft: #a99a7e;
+      --line: #3b3226;
+      --gold: #c9a24a;
+      --rubric: #e26b58;
+      --lapis: #8ea9e6;
+      --on-rubric: #1b1611;
+      --mark: #4a3d17;
       color-scheme: dark;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #0f1218;
-    --surface: #161a22;
-    --fg: #e9ecf2;
-    --muted: #98a1b2;
-    --line: #252b36;
-    --accent: #8fa2ff;
-    --accent-soft: #1d2340;
+    --bg: #100d0a;
+    --panel: #1b1611;
+    --ink: #eadfc3;
+    --ink-soft: #a99a7e;
+    --line: #3b3226;
+    --gold: #c9a24a;
+    --rubric: #e26b58;
+    --lapis: #8ea9e6;
+    --on-rubric: #1b1611;
+    --mark: #4a3d17;
     color-scheme: dark;
   }
 
   * { box-sizing: border-box; }
   body {
     background: var(--bg);
-    color: var(--fg);
-    font-family: var(--font-body);
-    font-size: 15px;
-    line-height: 1.5;
+    color: var(--ink);
+    font-family: var(--font-text);
+    font-size: 18px;
+    line-height: 1.4;
     padding-left: max(16px, env(safe-area-inset-left, 0px));
     padding-right: max(16px, env(safe-area-inset-right, 0px));
-    padding-block: 0 56px;
-  }
-  .wrap { max-width: 760px; margin: 0 auto; }
-
-  header.top { padding-block: 40px 20px; }
-  .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  h1 {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: clamp(34px, 7vw, 48px);
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    margin: 8px 0 0;
-    text-wrap: balance;
-  }
-
-  .controls {
-    position: sticky;
-    top: env(safe-area-inset-top, 0px);
-    z-index: 5;
-    background: var(--bg);
-    padding-block: 12px;
-    border-bottom: 1px solid var(--line);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    padding-block: 28px 48px;
   }
   body::before {
     content: "";
@@ -91,187 +70,218 @@
     z-index: 10;
     background: var(--bg);
   }
-  .search {
+
+  .folio {
+    max-width: 960px;
+    margin: 0 auto;
+    background: var(--panel);
+    border: 1px solid var(--gold);
+    box-shadow: 0 0 0 4px var(--panel), 0 0 0 5px var(--line);
+  }
+  .band {
+    height: 6px;
+    background: repeating-linear-gradient(90deg, var(--rubric) 0 12px, var(--lapis) 12px 24px);
+    border-bottom: 1px solid var(--gold);
+  }
+  .inner { padding: 8px 44px 36px; }
+
+  .orn { display: flex; align-items: center; gap: 16px; }
+  .orn::before, .orn::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+  .orn::after { background: linear-gradient(270deg, transparent, var(--gold)); }
+  .orn span { width: 8px; height: 8px; background: var(--rubric); transform: rotate(45deg); outline: 1px solid var(--gold); outline-offset: 3px; }
+
+  header.title { padding: 30px 0 4px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .eyebrow { font-family: var(--font-label); font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--rubric); }
+  h1 {
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: clamp(27px, 6vw, 44px);
+    line-height: 1.12;
+    letter-spacing: 0.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .sub { margin: 0; font-style: italic; color: var(--ink-soft); font-size: 18px; }
+  header.title .orn { width: min(100%, 420px); margin-top: 6px; }
+
+  .controls {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 5;
+    background: var(--panel);
+    margin-top: 18px;
+    padding-block: 12px;
+    border-bottom: 1px solid var(--line);
     display: flex;
-    align-items: center;
-    gap: 10px;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    padding: 0 12px;
-    height: 46px;
+    flex-direction: column;
+    gap: 14px;
   }
-  .search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
-  .search svg { flex: none; color: var(--muted); }
+  .search { display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--ink-soft); padding: 2px 0 6px; }
+  .search:focus-within { border-bottom-color: var(--rubric); box-shadow: 0 1px 0 var(--rubric); }
+  .search svg { flex: none; color: var(--ink-soft); }
   .search input {
-    flex: 1;
-    min-width: 0;
-    border: 0;
-    outline: 0;
-    background: transparent;
-    color: var(--fg);
-    font: inherit;
-    font-size: 16px;
+    flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink);
+    font-family: var(--font-text); font-style: italic; font-size: 19px;
   }
-  .search input::placeholder { color: var(--muted); }
+  .search input::placeholder { color: var(--ink-soft); }
   .clear {
-    border: 0;
-    background: transparent;
-    color: var(--muted);
-    cursor: pointer;
-    font: inherit;
-    font-size: 13px;
-    padding: 4px 6px;
-    border-radius: 6px;
+    border: 0; background: transparent; color: var(--ink-soft); cursor: pointer;
+    font-family: var(--font-label); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 2px;
   }
-  .clear:hover { color: var(--fg); }
+  .clear:hover { color: var(--rubric); }
 
   .row-tools { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
   .chips { display: flex; flex-wrap: wrap; gap: 6px; min-width: 0; }
-  .chip {
-    font: inherit;
-    font-size: 13px;
-    color: var(--muted);
+  .chip, .dir {
+    font-family: var(--font-label);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
     background: transparent;
     border: 1px solid var(--line);
-    border-radius: 999px;
-    padding: 4px 11px;
+    border-radius: 2px;
+    padding: 5px 9px;
     cursor: pointer;
     display: inline-flex;
-    gap: 6px;
+    gap: 7px;
     align-items: baseline;
   }
-  .chip:hover { color: var(--fg); border-color: var(--muted); }
-  .chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-  .chip .n { font-family: var(--font-mono); font-size: 11px; opacity: 0.75; font-variant-numeric: tabular-nums; }
+  .chip:hover, .dir:hover { color: var(--ink); border-color: var(--gold); }
+  .chip[aria-pressed="true"] { background: var(--rubric); border-color: var(--rubric); color: var(--on-rubric); }
+  .chip .n { font-family: var(--font-text); font-size: 13px; letter-spacing: 0; opacity: 0.8; font-variant-numeric: tabular-nums; }
+  .dir { color: var(--ink); border-color: var(--gold); }
+  .dir .arrow { color: var(--rubric); letter-spacing: 0; }
+  :is(button, input):focus-visible { outline: 2px solid var(--lapis); outline-offset: 2px; }
 
-  .dir {
-    font: inherit;
-    font-size: 13px;
-    color: var(--fg);
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 5px 10px;
-    cursor: pointer;
-    display: inline-flex;
-    gap: 8px;
-    align-items: center;
-  }
-  .dir:hover { border-color: var(--muted); }
-  .dir .arrow { color: var(--accent); }
-  :is(button, input):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .meta { display: flex; flex-direction: column; gap: 4px; padding-block: 16px 0; }
+  .count { font-family: var(--font-label); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .legend { display: flex; flex-wrap: wrap; gap: 2px 14px; margin: 0; font-size: 15px; color: var(--ink-soft); }
+  .legend i { color: var(--lapis); }
 
-  .count { font-size: 13px; color: var(--muted); padding-block: 14px 4px; font-variant-numeric: tabular-nums; }
+  .head { display: flex; align-items: center; gap: 14px; margin: 24px 0 10px; font-weight: 400; }
+  .head::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
+  .initial {
+    display: grid; place-items: center; width: 46px; height: 46px; padding-bottom: 4px;
+    font-family: var(--font-initial); font-weight: 700; font-size: 34px; line-height: 1;
+    color: var(--rubric);
+    box-shadow: inset 0 0 0 1px var(--gold), inset 0 0 0 4px var(--panel), inset 0 0 0 5px var(--gold);
+  }
 
-  .group { display: grid; grid-template-columns: 36px 1fr; column-gap: 8px; padding-top: 20px; }
-  .letter {
-    font-family: var(--font-display);
-    font-size: 26px;
-    line-height: 1.1;
-    color: var(--accent);
-    position: sticky;
-    top: calc(var(--controls-h, 120px) + env(safe-area-inset-top, 0px) + 12px);
-    align-self: start;
-  }
-  .entries { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); min-width: 0; }
-  .entry {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 2px 12px;
-    align-items: baseline;
-    padding: 11px 2px;
-    border-bottom: 1px solid var(--line);
-  }
-  .main { font-family: var(--font-display); font-size: 21px; line-height: 1.25; overflow-wrap: anywhere; }
-  .sub { grid-column: 1; color: var(--muted); overflow-wrap: anywhere; }
-  .pos {
-    grid-column: 2;
-    grid-row: 1;
-    font-family: var(--font-mono);
-    font-size: 11.5px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--accent);
-    background: var(--accent-soft);
-    border-radius: 5px;
-    padding: 2px 7px;
-    white-space: nowrap;
-  }
-  .entry.eng .main { font-family: var(--font-body); font-size: 17px; font-weight: 500; }
-  .entry.eng .sub { font-family: var(--font-display); font-size: 19px; color: var(--fg); }
-  mark { background: var(--accent-soft); color: inherit; border-radius: 3px; padding: 0 1px; }
+  .entries { list-style: none; margin: 0; padding: 0; column-count: 1; column-gap: 44px; }
+  @media (min-width: 780px) { .entries { column-count: 2; column-rule: 1px solid var(--line); } }
+  .entry { break-inside: avoid; padding: 4px 0 4px 1.1em; text-indent: -1.1em; overflow-wrap: anywhere; }
+  .hw { font-weight: 600; font-size: 1.08em; }
+  .ab { font-style: italic; color: var(--lapis); font-size: 0.92em; margin: 0 0.3em; }
+  .arn.alt { font-style: italic; font-weight: 500; }
+  .arn.alt::before { content: "\2014\00a0"; color: var(--gold); font-style: normal; }
+  sup { font-size: 0.62em; line-height: 0; color: var(--rubric); font-weight: 600; margin-left: 1px; }
+  mark { background: var(--mark); color: inherit; border-radius: 2px; padding: 0 1px; }
 
-  .empty { padding: 56px 0; text-align: center; color: var(--muted); }
-  .empty b { display: block; color: var(--fg); font-family: var(--font-display); font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+  .empty { padding: 56px 0 40px; text-align: center; font-style: italic; color: var(--ink-soft); }
+  .empty b { display: block; font-style: normal; font-family: var(--font-label); letter-spacing: 0.06em; color: var(--ink); font-size: 18px; font-weight: 500; margin-bottom: 4px; }
 
-  @media (max-width: 480px) {
-    .group { grid-template-columns: 1fr; }
-    .letter { position: static; padding-bottom: 6px; }
-  }
-  @media (prefers-reduced-motion: no-preference) {
-    .chip, .dir, .search { transition: border-color .15s, background-color .15s, color .15s; }
+  footer.end { margin-top: 36px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  footer.end .orn { width: 100%; }
+  footer.end p { margin: 0; font-family: var(--font-label); font-size: 12px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--ink-soft); padding-left: 0.4em; }
+
+  @media (max-width: 600px) {
+    body { padding-block: 16px 32px; font-size: 17px; }
+    .inner { padding: 4px 16px 28px; }
+    header.title { padding-top: 22px; }
   }
 </style>
 
-<div class="wrap">
-  <header class="top">
-    <div class="eyebrow">Arnoldesco · Português</div>
-    <h1>Dicionário Arnoldesco</h1>
-  </header>
+<div class="folio">
+  <div class="band" aria-hidden="true"></div>
+  <div class="inner">
+    <header class="title">
+      <div class="eyebrow">Arnoldesco · Português</div>
+      <h1>Dicionário Arnoldesco</h1>
+      <p class="sub" id="sub"></p>
+      <div class="orn" aria-hidden="true"><span></span></div>
+    </header>
 
-  <div class="controls" id="controls">
-    <label class="search" for="q">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input id="q" type="search" placeholder="Buscar em arnoldesco ou português" autocomplete="off" spellcheck="false">
-      <button class="clear" id="clear" type="button" hidden>Limpar</button>
-    </label>
-    <div class="row-tools">
-      <div class="chips" id="chips" role="group" aria-label="Classe gramatical"></div>
-      <button class="dir" id="dir" type="button" aria-label="Alternar direção do dicionário"></button>
+    <div class="controls" id="controls">
+      <label class="search" for="q">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Buscar verbete" autocomplete="off" spellcheck="false">
+        <button class="clear" id="clear" type="button" hidden>Limpar</button>
+      </label>
+      <div class="row-tools">
+        <div class="chips" id="chips" role="group" aria-label="Classe gramatical"></div>
+        <button class="dir" id="dir" type="button" aria-label="Alternar direção do dicionário"></button>
+      </div>
     </div>
-  </div>
 
-  <div class="count" id="count" aria-live="polite"></div>
-  <main id="list"></main>
+    <div class="meta">
+      <div class="count" id="count" aria-live="polite"></div>
+      <p class="legend" id="legend"></p>
+    </div>
+    <main id="list"></main>
+
+    <footer class="end">
+      <div class="orn" aria-hidden="true"><span></span></div>
+      <p>Explicit</p>
+    </footer>
+  </div>
 </div>
 
 <script>
-  const DATA = [{"w": "lassare", "d": "deixar, permitir", "p": "verb"}, {"w": "i", "d": "eu", "p": "pronoun"}, {"w": "tu", "d": "tu (singular)", "p": "pronoun"}, {"w": "egli, esso", "d": "ele", "p": "pronoun"}, {"w": "noi", "d": "nós", "p": "pronoun"}, {"w": "voi", "d": "vós (plural)", "p": "pronoun"}, {"w": "elli, essi", "d": "eles", "p": "pronoun"}, {"w": "esto", "d": "este, isto", "p": "pronoun"}, {"w": "esso", "d": "esse, isso", "p": "pronoun"}, {"w": "qui, qua", "d": "aqui", "p": "adverb"}, {"w": "lì, là", "d": "ali, lá", "p": "adverb"}, {"w": "chi", "d": "quem", "p": "pronoun"}, {"w": "che", "d": "que, o quê", "p": "pronoun"}, {"w": "ove, onde", "d": "onde", "p": "adverb"}, {"w": "quando", "d": "quando", "p": "adverb"}, {"w": "come", "d": "como", "p": "adverb"}, {"w": "non", "d": "não", "p": "adverb"}, {"w": "tutto", "d": "todo, tudo", "p": "pronoun"}, {"w": "molt-", "d": "muito", "p": "adjective"}, {"w": "qualche", "d": "algum", "p": "adjective"}, {"w": "poco", "d": "pouco", "p": "adjective"}, {"w": "altro", "d": "outro", "p": "adjective"}, {"w": "uno", "d": "um", "p": "numeral"}, {"w": "dui", "d": "dois", "p": "numeral"}, {"w": "tre", "d": "três", "p": "numeral"}, {"w": "quattro", "d": "quatro", "p": "numeral"}, {"w": "cinque", "d": "cinco", "p": "numeral"}, {"w": "gran(de)", "d": "grande", "p": "adjective"}, {"w": "lungo", "d": "longo", "p": "adjective"}, {"w": "largo", "d": "largo", "p": "adjective"}, {"w": "gruosso", "d": "grosso", "p": "adjective"}, {"w": "pesante", "d": "pesado", "p": "adjective"}, {"w": "pettito", "d": "pequeno", "p": "adjective"}, {"w": "corto", "d": "curto", "p": "adjective"}, {"w": "stretto", "d": "estreito", "p": "adjective"}, {"w": "fino", "d": "fino", "p": "adjective"}, {"w": "mogliera", "d": "mulher", "p": "noun"}, {"w": "uomo, huomo", "d": "homem (adulto do sexo masculino)", "p": "noun"}, {"w": "umano", "d": "homem (ser humano)", "p": "noun"}, {"w": "criatura", "d": "criança", "p": "noun"}, {"w": "sposa", "d": "esposa", "p": "noun"}, {"w": "marito", "d": "marido", "p": "noun"}, {"w": "madre", "d": "mãe", "p": "noun"}, {"w": "padre", "d": "pai", "p": "noun"}, {"w": "animal(e)", "d": "animal", "p": "noun"}, {"w": "pesce", "d": "peixe", "p": "noun"}, {"w": "aucella", "d": "pássaro", "p": "noun"}, {"w": "cane", "d": "cachorro", "p": "noun"}, {"w": "pidocchio", "d": "piolho", "p": "noun"}, {"w": "serpente", "d": "cobra", "p": "noun"}, {"w": "verme, vierme", "d": "verme", "p": "noun"}, {"w": "arvore", "d": "árvore", "p": "noun"}, {"w": "foresta, selva", "d": "floresta", "p": "noun"}, {"w": "palo", "d": "pau", "p": "noun"}, {"w": "frutto", "d": "fruta", "p": "noun"}, {"w": "spierma", "d": "semente", "p": "noun"}, {"w": "foglia, fuoglia", "d": "folha", "p": "noun"}, {"w": "radice", "d": "raiz", "p": "noun"}, {"w": "corteccia", "d": "casca (de árvore)", "p": "noun"}, {"w": "fior(e)", "d": "flor", "p": "noun"}, {"w": "ierba", "d": "grama", "p": "noun"}, {"w": "corda, cuorda", "d": "corda", "p": "noun"}, {"w": "pelle", "d": "pele", "p": "noun"}, {"w": "carne", "d": "carne", "p": "noun"}, {"w": "sangue", "d": "sangue", "p": "noun"}, {"w": "uosso, osso", "d": "osso", "p": "noun"}, {"w": "grassa", "d": "gordura", "p": "noun"}, {"w": "uovo", "d": "ovo", "p": "noun"}, {"w": "corno, cuorno", "d": "chifre", "p": "noun"}, {"w": "cuoda, coda", "d": "cauda", "p": "noun"}, {"w": "penna", "d": "pena", "p": "noun"}, {"w": "capello", "d": "cabelo", "p": "noun"}, {"w": "testa, capezza", "d": "cabeça", "p": "noun"}, {"w": "orechia", "d": "orelha", "p": "noun"}, {"w": "ochio", "d": "olho", "p": "noun"}, {"w": "naso", "d": "nariz", "p": "noun"}, {"w": "bocca", "d": "boca", "p": "noun"}, {"w": "diente", "d": "dente", "p": "noun"}, {"w": "lingua", "d": "língua", "p": "noun"}, {"w": "unghia", "d": "unha", "p": "noun"}, {"w": "piede", "d": "pé", "p": "noun"}, {"w": "gamba", "d": "perna", "p": "noun"}, {"w": "ginocchio, -ia", "d": "joelho", "p": "noun"}, {"w": "man(o)", "d": "mão", "p": "noun"}, {"w": "ala", "d": "asa", "p": "noun"}, {"w": "panza", "d": "barriga", "p": "noun"}, {"w": "viscere", "d": "entranhas", "p": "noun"}, {"w": "collo", "d": "pescoço", "p": "noun"}, {"w": "spalda", "d": "costas", "p": "noun"}, {"w": "mammilla, mammella", "d": "seio", "p": "noun"}, {"w": "cuor(e)", "d": "coração", "p": "noun"}, {"w": "fecato", "d": "fígado", "p": "noun"}, {"w": "bevere, bevre, ber(e)", "d": "beber", "p": "verb"}, {"w": "magnare", "d": "comer", "p": "verb"}, {"w": "mordere", "d": "morder", "p": "verb"}, {"w": "succhiare", "d": "chupar", "p": "verb"}, {"w": "sputare", "d": "cuspir", "p": "verb"}, {"w": "vomitare", "d": "vomitar", "p": "verb"}, {"w": "soffiare", "d": "soprar", "p": "verb"}, {"w": "respirare", "d": "respirar", "p": "verb"}, {"w": "ridere", "d": "rir", "p": "verb"}, {"w": "vedere", "d": "ver", "p": "verb"}, {"w": "ascoltare", "d": "ouvir", "p": "verb"}, {"w": "sapere", "d": "saber", "p": "verb"}, {"w": "pensare", "d": "pensar", "p": "verb"}, {"w": "sentir l'odor(e)", "d": "cheirar", "p": "verb"}, {"w": "impaurare", "d": "temer", "p": "verb"}, {"w": "dormire", "d": "dormir", "p": "verb"}, {"w": "vivere, campare", "d": "viver", "p": "verb"}, {"w": "morire", "d": "morrer", "p": "verb"}, {"w": "matare", "d": "matar", "p": "verb"}, {"w": "luttare", "d": "lutar", "p": "verb"}, {"w": "dividere", "d": "dividir", "p": "verb"}, {"w": "natare", "d": "nadar", "p": "verb"}, {"w": "volare", "d": "voar", "p": "verb"}, {"w": "camminare", "d": "andar", "p": "verb"}, {"w": "venire", "d": "vir", "p": "verb"}, {"w": "colcarsi", "d": "deitar-se", "p": "verb"}, {"w": "sedere", "d": "sentar", "p": "verb"}, {"w": "stare", "d": "ficar de pé", "p": "verb"}, {"w": "girare", "d": "girar", "p": "verb"}, {"w": "cadere", "d": "cair", "p": "verb"}, {"w": "dare, donare", "d": "dar", "p": "verb"}, {"w": "tenere, ritenere", "d": "segurar", "p": "verb"}, {"w": "lavare", "d": "lavar", "p": "verb"}, {"w": "dicere, dire", "d": "dizer", "p": "verb"}, {"w": "cantare", "d": "cantar", "p": "verb"}, {"w": "giocare, ludare", "d": "brincar, jogar", "p": "verb"}, {"w": "sol(e)", "d": "sol", "p": "noun"}, {"w": "luna", "d": "lua", "p": "noun"}, {"w": "stella", "d": "estrela", "p": "noun"}, {"w": "acqua", "d": "água", "p": "noun"}, {"w": "piovia", "d": "chuva", "p": "noun"}, {"w": "fiume, rivo", "d": "rio", "p": "noun"}, {"w": "laco", "d": "lago", "p": "noun"}, {"w": "mar(e)", "d": "mar", "p": "noun"}, {"w": "sal(e)", "d": "sal", "p": "noun"}, {"w": "pietra", "d": "pedra", "p": "noun"}, {"w": "arena", "d": "areia", "p": "noun"}, {"w": "polvere/o", "d": "poeira", "p": "noun"}, {"w": "terra, tierra", "d": "terra", "p": "noun"}, {"w": "nuvole", "d": "nuvem", "p": "noun"}, {"w": "nebbia", "d": "névoa", "p": "noun"}, {"w": "cielo", "d": "céu", "p": "noun"}, {"w": "viento", "d": "vento", "p": "noun"}, {"w": "nieve", "d": "neve", "p": "noun"}, {"w": "ghiaccio, gello", "d": "gelo", "p": "noun"}, {"w": "fumo", "d": "fumaça", "p": "noun"}, {"w": "fuoco", "d": "fogo", "p": "noun"}, {"w": "cenere", "d": "cinza", "p": "noun"}, {"w": "ardere, bruciare", "d": "queimar", "p": "verb"}, {"w": "strata", "d": "estrada", "p": "noun"}, {"w": "montagna", "d": "montanha", "p": "noun"}, {"w": "rosso", "d": "vermelho", "p": "adjective"}, {"w": "verde", "d": "verde", "p": "adjective"}, {"w": "giallo, fiavo", "d": "amarelo", "p": "adjective"}, {"w": "albo, alvo", "d": "branco", "p": "adjective"}, {"w": "nero, niegro", "d": "preto", "p": "adjective"}, {"w": "notte", "d": "noite", "p": "noun"}, {"w": "dì, giorno", "d": "dia", "p": "noun"}, {"w": "anno", "d": "ano", "p": "noun"}, {"w": "caldo", "d": "quente", "p": "adjective"}, {"w": "freddo", "d": "frio", "p": "adjective"}, {"w": "pieno", "d": "cheio", "p": "adjective"}, {"w": "nuovo", "d": "novo", "p": "adjective"}, {"w": "viecchio", "d": "velho", "p": "adjective"}, {"w": "buono, bono", "d": "bom", "p": "adjective"}, {"w": "mal(e), malvaggio", "d": "mau", "p": "adjective"}, {"w": "sporco, spuorco", "d": "sujo", "p": "adjective"}, {"w": "stretto, diritto", "d": "reto", "p": "adjective"}, {"w": "rotundo", "d": "redondo", "p": "adjective"}, {"w": "corretto", "d": "correto", "p": "adjective"}, {"w": "vicin(o)", "d": "perto", "p": "adjective"}, {"w": "luntan(o)", "d": "longe", "p": "adjective"}, {"w": "dretto", "d": "direito", "p": "adjective"}, {"w": "sinistro", "d": "esquerdo", "p": "adjective"}, {"w": "in, en, a, ad", "d": "em, a", "p": "preposition"}, {"w": "in, en", "d": "em", "p": "preposition"}, {"w": "con", "d": "com", "p": "preposition"}, {"w": "e, ed", "d": "e", "p": "conjunction"}, {"w": "se", "d": "se", "p": "conjunction"}, {"w": "perché, visto che", "d": "porque", "p": "conjunction"}, {"w": "nome, nuome", "d": "nome", "p": "noun"}, {"w": "domentre", "d": "enquanto, entretanto", "p": "conjunction"}, {"w": "dunque", "d": "portanto", "p": "conjunction"}, {"w": "donde", "d": "portanto", "p": "conjunction"}, {"w": "frattempo", "d": "enquanto, entretanto", "p": "conjunction"}, {"w": "frattiempo", "d": "enquanto, entretanto", "p": "conjunction"}, {"w": "dimani", "d": "amanhã", "p": "adverb"}, {"w": "demani", "d": "amanhã", "p": "adverb"}, {"w": "oltra", "d": "além de, mais que, exceto, afora", "p": "preposition"}, {"w": "può esser", "d": "talvez", "p": "adverb"}, {"w": "fortassi", "d": "talvez", "p": "adverb"}, {"w": "anco", "d": "também", "p": "discourse"}, {"w": "suso", "d": "sobre, em cima de", "p": "preposition"}, {"w": "sei", "d": "seis", "p": "numeral"}, {"w": "sette, siette", "d": "sete", "p": "numeral"}, {"w": "otto, uotto", "d": "oito", "p": "numeral"}, {"w": "nuove, nove", "d": "nove", "p": "numeral"}, {"w": "dieci", "d": "dez", "p": "numeral"}, {"w": "undici", "d": "onze", "p": "numeral"}, {"w": "duodici", "d": "vinte", "p": "numeral"}, {"w": "tredici", "d": "treze", "p": "numeral"}, {"w": "quattordici", "d": "catorze", "p": "numeral"}, {"w": "quindici", "d": "quinze", "p": "numeral"}, {"w": "diecissei", "d": "dezesseis", "p": "numeral"}, {"w": "diecissette", "d": "dezessete", "p": "numeral"}, {"w": "dieciotto", "d": "dezoito", "p": "numeral"}, {"w": "diecinuove, diecinove", "d": "dezenove", "p": "numeral"}, {"w": "venti", "d": "vinte", "p": "numeral"}, {"w": "ventidieci", "d": "trinta", "p": "numeral"}, {"w": "duiventi", "d": "quarenta", "p": "numeral"}, {"w": "duiventidieci", "d": "cinquenta", "p": "numeral"}, {"w": "treventi", "d": "sessenta", "p": "numeral"}, {"w": "treventidieci", "d": "setenta", "p": "numeral"}, {"w": "quattroventi", "d": "oitenta", "p": "numeral"}, {"w": "quattroventidieci", "d": "noventa", "p": "numeral"}, {"w": "cinqueventi", "d": "cem", "p": "numeral"}, {"w": "quindiciventi", "d": "trezentos", "p": "numeral"}, {"w": "duiventidieciventi", "d": "mil", "p": "numeral"}, {"w": "mille", "d": "mil", "p": "numeral"}, {"w": "eo", "d": "eu, mim", "p": "pronoun"}, {"w": "senza, assenza de, assenza di", "d": "sem", "p": "preposition"}, {"w": "sopra", "d": "acima de, sobre", "p": "preposition"}, {"w": "sotto", "d": "abaixo de, sob", "p": "preposition"}, {"w": "attraverso", "d": "através de", "p": "preposition"}, {"w": "avanti, davanti", "d": "antes de, diante de", "p": "preposition"}, {"w": "dopo", "d": "depois de", "p": "preposition"}, {"w": "verso", "d": "em direção a", "p": "preposition"}, {"w": "contra", "d": "contra", "p": "preposition"}, {"w": "fuori", "d": "fora, fora de", "p": "preposition"}, {"w": "siempre", "d": "sempre", "p": "adverb"}, {"w": "qualcosa", "d": "algo, alguma coisa", "p": "pronoun"}, {"w": "fin, fin a, fino a", "d": "até", "p": "preposition"}, {"w": "noialtri", "d": "nós", "p": "pronoun"}, {"w": "tiempo", "d": "tempo", "p": "noun"}, {"w": "diario", "d": "diário, jornal; diário (como adjetivo)", "p": "noun"}, {"w": "diaio", "d": "diário, jornal; diário (como adjetivo)", "p": "noun"}, {"w": "provar", "d": "tentar, experimentar, provar, testar", "p": "verb"}, {"w": "accossì", "d": "assim, desta maneira", "p": "adverb"}, {"w": "stoia", "d": "história, ficção", "p": "noun"}, {"w": "ciò", "d": "isto, isso", "p": "pronoun"}, {"w": "storia", "d": "história, ficção", "p": "noun"}];
-  const POS_LABEL = {
-    noun: "Substantivo", verb: "Verbo", adjective: "Adjetivo", adverb: "Advérbio",
-    pronoun: "Pronome", numeral: "Numeral", preposition: "Preposição",
-    conjunction: "Conjunção", discourse: "Discurso"
+  const DATA = [{"w": "lassare", "d": "deixar, permitir", "p": "verb"}, {"w": "icché", "d": "marcador de pergunta (perguntas de sim ou não)", "p": "discourse"}, {"w": "altrove", "d": "em outro lugar, noutro lugar, alhures", "p": "adverb"}, {"w": "devenire", "d": "tornar-se, transformar-se em", "p": "verb"}, {"w": "cui", "d": "pronome relativo (caso oblíquo)", "p": "pronoun"}, {"w": "loro", "d": "a eles (dativo, animado)", "p": "pronoun"}, {"w": "gli", "d": "dativo de 3ª pessoa", "p": "pronoun"}, {"w": "gli", "d": "artigo definido, alomorfe de LI/I", "p": "determiner"}, {"w": "giù", "d": "embaixo, sob, lá embaixo", "p": "adverb"}, {"w": "laggiù", "d": "lá embaixo", "p": "adverb"}, {"w": "vi", "d": "para lá", "p": "adverb"}, {"w": "ci", "d": "para lá", "p": "adverb"}, {"w": "inde-", "d": "em, sobre, a; usado após artigos", "p": "preposition"}, {"w": "annata", "d": "período de um ano, o ano corrente", "p": "noun"}, {"w": "i", "d": "eu", "p": "pronoun"}, {"w": "tu", "d": "tu (singular)", "p": "pronoun"}, {"w": "egli", "d": "ele", "p": "pronoun"}, {"w": "esso", "d": "ele", "p": "pronoun"}, {"w": "noi", "d": "nós", "p": "pronoun"}, {"w": "voi", "d": "vós (plural)", "p": "pronoun"}, {"w": "elli", "d": "eles", "p": "pronoun"}, {"w": "essi", "d": "eles", "p": "pronoun"}, {"w": "esto", "d": "este, isto", "p": "pronoun"}, {"w": "esso", "d": "esse, isso", "p": "pronoun"}, {"w": "qui", "d": "aqui", "p": "adverb"}, {"w": "qua", "d": "aqui", "p": "adverb"}, {"w": "lì", "d": "ali, lá", "p": "adverb"}, {"w": "là", "d": "ali, lá", "p": "adverb"}, {"w": "chi", "d": "quem", "p": "pronoun"}, {"w": "che", "d": "que, o quê", "p": "pronoun"}, {"w": "ove", "d": "onde", "p": "adverb"}, {"w": "onde", "d": "onde", "p": "adverb"}, {"w": "quando", "d": "quando", "p": "adverb"}, {"w": "come", "d": "como", "p": "adverb"}, {"w": "non", "d": "não", "p": "adverb"}, {"w": "tutto", "d": "todo, tudo", "p": "pronoun"}, {"w": "molt-", "d": "muito", "p": "adjective"}, {"w": "qualche", "d": "algum", "p": "adjective"}, {"w": "poco", "d": "pouco", "p": "adjective"}, {"w": "altro", "d": "outro", "p": "adjective"}, {"w": "uno", "d": "um", "p": "numeral"}, {"w": "dui", "d": "dois", "p": "numeral"}, {"w": "tre", "d": "três", "p": "numeral"}, {"w": "quattro", "d": "quatro", "p": "numeral"}, {"w": "cinque", "d": "cinco", "p": "numeral"}, {"w": "gran(de)", "d": "grande", "p": "adjective"}, {"w": "lungo", "d": "longo", "p": "adjective"}, {"w": "largo", "d": "largo", "p": "adjective"}, {"w": "gruosso", "d": "grosso", "p": "adjective"}, {"w": "pesante", "d": "pesado", "p": "adjective"}, {"w": "pettito", "d": "pequeno", "p": "adjective"}, {"w": "corto", "d": "curto", "p": "adjective"}, {"w": "stretto", "d": "estreito", "p": "adjective"}, {"w": "fino", "d": "fino", "p": "adjective"}, {"w": "mogliera", "d": "mulher", "p": "noun"}, {"w": "uomo", "d": "homem (adulto do sexo masculino)", "p": "noun"}, {"w": "huomo", "d": "homem (adulto do sexo masculino)", "p": "noun"}, {"w": "umano", "d": "homem (ser humano)", "p": "noun"}, {"w": "criatura", "d": "criança", "p": "noun"}, {"w": "sposa", "d": "esposa", "p": "noun"}, {"w": "marito", "d": "marido", "p": "noun"}, {"w": "madre", "d": "mãe", "p": "noun"}, {"w": "padre", "d": "pai", "p": "noun"}, {"w": "animal(e)", "d": "animal", "p": "noun"}, {"w": "pesce", "d": "peixe", "p": "noun"}, {"w": "aucella", "d": "pássaro", "p": "noun"}, {"w": "cane", "d": "cachorro", "p": "noun"}, {"w": "pidocchio", "d": "piolho", "p": "noun"}, {"w": "serpente", "d": "cobra", "p": "noun"}, {"w": "verme", "d": "verme", "p": "noun"}, {"w": "vierme", "d": "verme", "p": "noun"}, {"w": "arvore", "d": "árvore", "p": "noun"}, {"w": "foresta", "d": "floresta", "p": "noun"}, {"w": "selva", "d": "floresta", "p": "noun"}, {"w": "palo", "d": "pau", "p": "noun"}, {"w": "frutto", "d": "fruta", "p": "noun"}, {"w": "spierma", "d": "semente", "p": "noun"}, {"w": "foglia", "d": "folha", "p": "noun"}, {"w": "fuoglia", "d": "folha", "p": "noun"}, {"w": "radice", "d": "raiz", "p": "noun"}, {"w": "corteccia", "d": "casca (de árvore)", "p": "noun"}, {"w": "fior(e)", "d": "flor", "p": "noun"}, {"w": "ierba", "d": "grama", "p": "noun"}, {"w": "corda", "d": "corda", "p": "noun"}, {"w": "cuorda", "d": "corda", "p": "noun"}, {"w": "pelle", "d": "pele", "p": "noun"}, {"w": "carne", "d": "carne", "p": "noun"}, {"w": "sangue", "d": "sangue", "p": "noun"}, {"w": "uosso", "d": "osso", "p": "noun"}, {"w": "osso", "d": "osso", "p": "noun"}, {"w": "grassa", "d": "gordura", "p": "noun"}, {"w": "uovo", "d": "ovo", "p": "noun"}, {"w": "corno", "d": "chifre", "p": "noun"}, {"w": "cuorno", "d": "chifre", "p": "noun"}, {"w": "cuoda", "d": "cauda", "p": "noun"}, {"w": "coda", "d": "cauda", "p": "noun"}, {"w": "penna", "d": "pena", "p": "noun"}, {"w": "capello", "d": "cabelo", "p": "noun"}, {"w": "testa", "d": "cabeça", "p": "noun"}, {"w": "capezza", "d": "cabeça", "p": "noun"}, {"w": "orechia", "d": "orelha", "p": "noun"}, {"w": "ochio", "d": "olho", "p": "noun"}, {"w": "naso", "d": "nariz", "p": "noun"}, {"w": "bocca", "d": "boca", "p": "noun"}, {"w": "diente", "d": "dente", "p": "noun"}, {"w": "lingua", "d": "língua", "p": "noun"}, {"w": "unghia", "d": "unha", "p": "noun"}, {"w": "piede", "d": "pé", "p": "noun"}, {"w": "gamba", "d": "perna", "p": "noun"}, {"w": "ginocchio, -ia", "d": "joelho", "p": "noun"}, {"w": "man(o)", "d": "mão", "p": "noun"}, {"w": "ala", "d": "asa", "p": "noun"}, {"w": "panza", "d": "barriga", "p": "noun"}, {"w": "viscere", "d": "entranhas", "p": "noun"}, {"w": "collo", "d": "pescoço", "p": "noun"}, {"w": "spalda", "d": "costas", "p": "noun"}, {"w": "mammilla", "d": "seio", "p": "noun"}, {"w": "mammella", "d": "seio", "p": "noun"}, {"w": "cuor(e)", "d": "coração", "p": "noun"}, {"w": "fecato", "d": "fígado", "p": "noun"}, {"w": "bevere", "d": "beber", "p": "verb"}, {"w": "bevre", "d": "beber", "p": "verb"}, {"w": "ber(e)", "d": "beber", "p": "verb"}, {"w": "magnare", "d": "comer", "p": "verb"}, {"w": "mordere", "d": "morder", "p": "verb"}, {"w": "succhiare", "d": "chupar", "p": "verb"}, {"w": "sputare", "d": "cuspir", "p": "verb"}, {"w": "vomitare", "d": "vomitar", "p": "verb"}, {"w": "soffiare", "d": "soprar", "p": "verb"}, {"w": "respirare", "d": "respirar", "p": "verb"}, {"w": "ridere", "d": "rir", "p": "verb"}, {"w": "vedere", "d": "ver", "p": "verb"}, {"w": "ascoltare", "d": "ouvir", "p": "verb"}, {"w": "sapere", "d": "saber", "p": "verb"}, {"w": "pensare", "d": "pensar", "p": "verb"}, {"w": "sentir l'odor(e)", "d": "cheirar", "p": "verb"}, {"w": "impaurare", "d": "temer", "p": "verb"}, {"w": "dormire", "d": "dormir", "p": "verb"}, {"w": "vivere", "d": "viver", "p": "verb"}, {"w": "campare", "d": "viver", "p": "verb"}, {"w": "morire", "d": "morrer", "p": "verb"}, {"w": "matare", "d": "matar", "p": "verb"}, {"w": "luttare", "d": "lutar", "p": "verb"}, {"w": "dividere", "d": "dividir", "p": "verb"}, {"w": "natare", "d": "nadar", "p": "verb"}, {"w": "volare", "d": "voar", "p": "verb"}, {"w": "camminare", "d": "andar", "p": "verb"}, {"w": "venire", "d": "vir", "p": "verb"}, {"w": "colcarsi", "d": "deitar-se", "p": "verb"}, {"w": "sedere", "d": "sentar", "p": "verb"}, {"w": "stare", "d": "ficar de pé", "p": "verb"}, {"w": "girare", "d": "girar", "p": "verb"}, {"w": "cadere", "d": "cair", "p": "verb"}, {"w": "dare", "d": "dar", "p": "verb"}, {"w": "donare", "d": "dar", "p": "verb"}, {"w": "tenere", "d": "segurar", "p": "verb"}, {"w": "ritenere", "d": "segurar", "p": "verb"}, {"w": "lavare", "d": "lavar", "p": "verb"}, {"w": "dicere", "d": "dizer", "p": "verb"}, {"w": "dire", "d": "dizer", "p": "verb"}, {"w": "cantare", "d": "cantar", "p": "verb"}, {"w": "giocare", "d": "brincar, jogar", "p": "verb"}, {"w": "ludare", "d": "brincar, jogar", "p": "verb"}, {"w": "sol(e)", "d": "sol", "p": "noun"}, {"w": "luna", "d": "lua", "p": "noun"}, {"w": "stella", "d": "estrela", "p": "noun"}, {"w": "acqua", "d": "água", "p": "noun"}, {"w": "piovia", "d": "chuva", "p": "noun"}, {"w": "fiume", "d": "rio", "p": "noun"}, {"w": "rivo", "d": "rio", "p": "noun"}, {"w": "laco", "d": "lago", "p": "noun"}, {"w": "mar(e)", "d": "mar", "p": "noun"}, {"w": "sal(e)", "d": "sal", "p": "noun"}, {"w": "pietra", "d": "pedra", "p": "noun"}, {"w": "arena", "d": "areia", "p": "noun"}, {"w": "polvere/o", "d": "poeira", "p": "noun"}, {"w": "terra", "d": "terra", "p": "noun"}, {"w": "tierra", "d": "terra", "p": "noun"}, {"w": "nuvole", "d": "nuvem", "p": "noun"}, {"w": "nebbia", "d": "névoa", "p": "noun"}, {"w": "cielo", "d": "céu", "p": "noun"}, {"w": "viento", "d": "vento", "p": "noun"}, {"w": "nieve", "d": "neve", "p": "noun"}, {"w": "ghiaccio", "d": "gelo", "p": "noun"}, {"w": "gello", "d": "gelo", "p": "noun"}, {"w": "fumo", "d": "fumaça", "p": "noun"}, {"w": "fuoco", "d": "fogo", "p": "noun"}, {"w": "cenere", "d": "cinza", "p": "noun"}, {"w": "ardere", "d": "queimar", "p": "verb"}, {"w": "bruciare", "d": "queimar", "p": "verb"}, {"w": "strata", "d": "estrada", "p": "noun"}, {"w": "montagna", "d": "montanha", "p": "noun"}, {"w": "rosso", "d": "vermelho", "p": "adjective"}, {"w": "verde", "d": "verde", "p": "adjective"}, {"w": "giallo", "d": "amarelo", "p": "adjective"}, {"w": "fiavo", "d": "amarelo", "p": "adjective"}, {"w": "albo", "d": "branco", "p": "adjective"}, {"w": "alvo", "d": "branco", "p": "adjective"}, {"w": "nero", "d": "preto", "p": "adjective"}, {"w": "niegro", "d": "preto", "p": "adjective"}, {"w": "notte", "d": "noite", "p": "noun"}, {"w": "dì", "d": "dia", "p": "noun"}, {"w": "giorno", "d": "dia", "p": "noun"}, {"w": "anno", "d": "ano", "p": "noun"}, {"w": "caldo", "d": "quente", "p": "adjective"}, {"w": "freddo", "d": "frio", "p": "adjective"}, {"w": "pieno", "d": "cheio", "p": "adjective"}, {"w": "nuovo", "d": "novo", "p": "adjective"}, {"w": "viecchio", "d": "velho", "p": "adjective"}, {"w": "buono", "d": "bom", "p": "adjective"}, {"w": "bono", "d": "bom", "p": "adjective"}, {"w": "mal(e)", "d": "mau", "p": "adjective"}, {"w": "malvaggio", "d": "mau", "p": "adjective"}, {"w": "sporco", "d": "sujo", "p": "adjective"}, {"w": "spuorco", "d": "sujo", "p": "adjective"}, {"w": "stretto", "d": "reto", "p": "adjective"}, {"w": "diritto", "d": "reto", "p": "adjective"}, {"w": "rotundo", "d": "redondo", "p": "adjective"}, {"w": "corretto", "d": "correto", "p": "adjective"}, {"w": "vicin(o)", "d": "perto", "p": "adjective"}, {"w": "luntan(o)", "d": "longe", "p": "adjective"}, {"w": "dretto", "d": "direito", "p": "adjective"}, {"w": "sinistro", "d": "esquerdo", "p": "adjective"}, {"w": "in", "d": "em, a", "p": "preposition"}, {"w": "en", "d": "em, a", "p": "preposition"}, {"w": "a", "d": "em, a", "p": "preposition"}, {"w": "ad", "d": "em, a", "p": "preposition"}, {"w": "in", "d": "em", "p": "preposition"}, {"w": "en", "d": "em", "p": "preposition"}, {"w": "con", "d": "com", "p": "preposition"}, {"w": "e", "d": "e", "p": "conjunction"}, {"w": "ed", "d": "e", "p": "conjunction"}, {"w": "se", "d": "se", "p": "conjunction"}, {"w": "perché", "d": "porque", "p": "conjunction"}, {"w": "visto che", "d": "porque", "p": "conjunction"}, {"w": "nome", "d": "nome", "p": "noun"}, {"w": "nuome", "d": "nome", "p": "noun"}, {"w": "domentre", "d": "enquanto, entretanto", "p": "conjunction"}, {"w": "dunque", "d": "portanto", "p": "conjunction"}, {"w": "donde", "d": "portanto", "p": "conjunction"}, {"w": "frattempo", "d": "enquanto, entretanto", "p": "conjunction"}, {"w": "frattiempo", "d": "enquanto, entretanto", "p": "conjunction"}, {"w": "dimani", "d": "amanhã", "p": "adverb"}, {"w": "demani", "d": "amanhã", "p": "adverb"}, {"w": "oltra", "d": "além de, mais que, exceto, afora", "p": "preposition"}, {"w": "può esser", "d": "talvez", "p": "adverb"}, {"w": "fortassi", "d": "talvez", "p": "adverb"}, {"w": "anco", "d": "também", "p": "discourse"}, {"w": "suso", "d": "sobre, em cima de", "p": "preposition"}, {"w": "sei", "d": "seis", "p": "numeral"}, {"w": "sette", "d": "sete", "p": "numeral"}, {"w": "siette", "d": "sete", "p": "numeral"}, {"w": "otto", "d": "oito", "p": "numeral"}, {"w": "uotto", "d": "oito", "p": "numeral"}, {"w": "nuove", "d": "nove", "p": "numeral"}, {"w": "nove", "d": "nove", "p": "numeral"}, {"w": "dieci", "d": "dez", "p": "numeral"}, {"w": "undici", "d": "onze", "p": "numeral"}, {"w": "duodici", "d": "vinte", "p": "numeral"}, {"w": "tredici", "d": "treze", "p": "numeral"}, {"w": "quattordici", "d": "catorze", "p": "numeral"}, {"w": "quindici", "d": "quinze", "p": "numeral"}, {"w": "diecissei", "d": "dezesseis", "p": "numeral"}, {"w": "diecissette", "d": "dezessete", "p": "numeral"}, {"w": "dieciotto", "d": "dezoito", "p": "numeral"}, {"w": "diecinuove", "d": "dezenove", "p": "numeral"}, {"w": "diecinove", "d": "dezenove", "p": "numeral"}, {"w": "venti", "d": "vinte", "p": "numeral"}, {"w": "ventidieci", "d": "trinta", "p": "numeral"}, {"w": "duiventi", "d": "quarenta", "p": "numeral"}, {"w": "duiventidieci", "d": "cinquenta", "p": "numeral"}, {"w": "treventi", "d": "sessenta", "p": "numeral"}, {"w": "treventidieci", "d": "setenta", "p": "numeral"}, {"w": "quattroventi", "d": "oitenta", "p": "numeral"}, {"w": "quattroventidieci", "d": "noventa", "p": "numeral"}, {"w": "cinqueventi", "d": "cem", "p": "numeral"}, {"w": "quindiciventi", "d": "trezentos", "p": "numeral"}, {"w": "duiventidieciventi", "d": "mil", "p": "numeral"}, {"w": "mille", "d": "mil", "p": "numeral"}, {"w": "eo", "d": "eu, mim", "p": "pronoun"}, {"w": "senza", "d": "sem", "p": "preposition"}, {"w": "assenza de", "d": "sem", "p": "preposition"}, {"w": "assenza di", "d": "sem", "p": "preposition"}, {"w": "sopra", "d": "acima de, sobre", "p": "preposition"}, {"w": "sotto", "d": "abaixo de, sob", "p": "preposition"}, {"w": "attraverso", "d": "através de", "p": "preposition"}, {"w": "avanti", "d": "antes de, diante de", "p": "preposition"}, {"w": "davanti", "d": "antes de, diante de", "p": "preposition"}, {"w": "dopo", "d": "depois de", "p": "preposition"}, {"w": "verso", "d": "em direção a", "p": "preposition"}, {"w": "contra", "d": "contra", "p": "preposition"}, {"w": "fuori", "d": "fora, fora de", "p": "preposition"}, {"w": "siempre", "d": "sempre", "p": "adverb"}, {"w": "qualcosa", "d": "algo, alguma coisa", "p": "pronoun"}, {"w": "fin", "d": "até", "p": "preposition"}, {"w": "fin a", "d": "até", "p": "preposition"}, {"w": "fino a", "d": "até", "p": "preposition"}, {"w": "noialtri", "d": "nós", "p": "pronoun"}, {"w": "tiempo", "d": "tempo", "p": "noun"}, {"w": "diario", "d": "diário, jornal; diário (como adjetivo)", "p": "noun"}, {"w": "diaio", "d": "diário, jornal; diário (como adjetivo)", "p": "noun"}, {"w": "provar", "d": "tentar, experimentar, provar, testar", "p": "verb"}, {"w": "accossì", "d": "assim, desta maneira", "p": "adverb"}, {"w": "stoia", "d": "história, ficção", "p": "noun"}, {"w": "ciò", "d": "isto, isso", "p": "pronoun"}, {"w": "storia", "d": "história, ficção", "p": "noun"}];
+  const POS = {
+    noun: ["Substantivo", "s."], verb: ["Verbo", "v."], adjective: ["Adjetivo", "adj."],
+    adverb: ["Advérbio", "adv."], pronoun: ["Pronome", "pron."], determiner: ["Determinante", "det."],
+    numeral: ["Numeral", "num."], preposition: ["Preposição", "prep."], conjunction: ["Conjunção", "conj."],
+    discourse: ["Discurso", "disc."]
   };
-  const POS_ORDER = ["noun", "verb", "adjective", "adverb", "pronoun", "numeral", "preposition", "conjunction", "discourse"];
-
+  const ORDER = Object.keys(POS);
   const state = { q: "", pos: "all", dir: "arn" };
 
   const $ = (id) => document.getElementById(id);
   const norm = (s) => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
   const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const lead = (s) => s.replace(/^[^a-z]+/, "");
+  const posInfo = (p) => POS[p] || [p, p + "."];
 
-  DATA.forEach((e) => { e.nw = norm(e.w); e.nd = norm(e.d); });
+  const seen = {};
+  DATA.forEach((e) => { e.nw = norm(e.w); e.nd = norm(e.d); seen[e.w] = (seen[e.w] || 0) + 1; e.n = seen[e.w]; });
+  DATA.forEach((e) => { e.hom = seen[e.w] > 1; });
 
-  function sortKey(e) {
-    const s = state.dir === "arn" ? e.nw : e.nd;
-    return s.replace(/^[^a-z]+/, "");
-  }
-
-  function highlight(text, q) {
+  function hl(text, q) {
     if (!q) return esc(text);
     const nt = norm(text);
     const i = nt.indexOf(q);
     if (i < 0 || nt.length !== text.length) return esc(text);
     return esc(text.slice(0, i)) + "<mark>" + esc(text.slice(i, i + q.length)) + "</mark>" + esc(text.slice(i + q.length));
   }
+  const word = (e, q) => hl(e.w, q) + (e.hom ? "<sup>" + e.n + "</sup>" : "");
+  const ab = (p) => `<i class="ab" title="${esc(posInfo(p)[0])}">${esc(posInfo(p)[1])}</i>`;
+
+  function buildRows(q) {
+    const pool = DATA.filter((e) => state.pos === "all" || e.p === state.pos);
+    if (state.dir === "arn") {
+      return pool
+        .filter((e) => !q || e.nw.includes(q) || e.nd.includes(q))
+        .map((e) => ({ key: e.nw, html: `<span class="hw arn">${word(e, q)}</span> ${ab(e.p)} <span class="gl">${hl(e.d, q)}</span>` }));
+    }
+    const groups = new Map();
+    pool.forEach((e) => {
+      const k = e.d + "|" + e.p;
+      if (!groups.has(k)) groups.set(k, { d: e.d, nd: e.nd, p: e.p, items: [] });
+      groups.get(k).items.push(e);
+    });
+    return [...groups.values()]
+      .filter((g) => !q || g.nd.includes(q) || g.items.some((e) => e.nw.includes(q)))
+      .map((g) => ({ key: g.nd, html: `<span class="hw">${hl(g.d, q)}</span> ${ab(g.p)} <span class="arn alt">${g.items.map((e) => word(e, q)).join(", ")}</span>` }));
+  }
 
   function renderChips() {
     const counts = { all: DATA.length };
     DATA.forEach((e) => { counts[e.p] = (counts[e.p] || 0) + 1; });
-    const keys = ["all", ...POS_ORDER.filter((p) => counts[p])];
+    const keys = ["all", ...ORDER.filter((p) => counts[p])];
     $("chips").innerHTML = keys.map((k) =>
-      `<button class="chip" type="button" data-pos="${k}" aria-pressed="${state.pos === k}">${k === "all" ? "Todos" : POS_LABEL[k]}<span class="n">${counts[k]}</span></button>`
+      `<button class="chip" type="button" data-pos="${k}" aria-pressed="${state.pos === k}">${k === "all" ? "Todos" : posInfo(k)[0]}<span class="n">${counts[k]}</span></button>`
     ).join("");
   }
 
@@ -283,10 +293,9 @@
 
   function render() {
     const q = norm(state.q.trim());
-    let rows = DATA.filter((e) =>
-      (state.pos === "all" || e.p === state.pos) && (!q || e.nw.includes(q) || e.nd.includes(q))
-    );
-    rows.sort((a, b) => sortKey(a).localeCompare(sortKey(b), "it") || a.w.localeCompare(b.w, "it"));
+    const rows = buildRows(q);
+    const loc = state.dir === "arn" ? "it" : "pt";
+    rows.sort((a, b) => lead(a.key).localeCompare(lead(b.key), loc));
 
     $("count").textContent = rows.length === 1 ? "1 verbete" : rows.length + " verbetes";
     $("clear").hidden = !state.q;
@@ -297,25 +306,17 @@
     }
 
     const groups = [];
-    rows.forEach((e) => {
-      const letter = (sortKey(e)[0] || "#").toUpperCase();
+    rows.forEach((r) => {
+      const letter = (lead(r.key)[0] || "#").toUpperCase();
       const last = groups[groups.length - 1];
-      if (last && last.letter === letter) last.items.push(e);
-      else groups.push({ letter, items: [e] });
+      if (last && last.letter === letter) last.items.push(r);
+      else groups.push({ letter, items: [r] });
     });
 
-    const arn = state.dir === "arn";
     $("list").innerHTML = groups.map((g) =>
-      `<section class="group"><div class="letter" aria-hidden="true">${g.letter}</div><ul class="entries">` +
-      g.items.map((e) => {
-        const w = highlight(e.w, q), d = highlight(e.d, q);
-        return `<li class="entry${arn ? "" : " eng"}"><span class="main">${arn ? w : d}</span><span class="pos">${POS_LABEL[e.p] || esc(e.p)}</span><span class="sub">${arn ? d : w}</span></li>`;
-      }).join("") + "</ul></section>"
+      `<section class="group"><h2 class="head"><span class="initial">${g.letter}</span></h2><ul class="entries">` +
+      g.items.map((r) => `<li class="entry">${r.html}</li>`).join("") + "</ul></section>"
     ).join("");
-  }
-
-  function syncOffset() {
-    document.documentElement.style.setProperty("--controls-h", $("controls").offsetHeight + "px");
   }
 
   $("q").addEventListener("input", (ev) => { state.q = ev.target.value; render(); });
@@ -327,13 +328,13 @@
     renderChips();
     render();
   });
-  $("dir").addEventListener("click", () => { state.dir = state.dir === "arn" ? "eng" : "arn"; renderDir(); render(); });
-  window.addEventListener("resize", syncOffset);
+  $("dir").addEventListener("click", () => { state.dir = state.dir === "arn" ? "pt" : "arn"; renderDir(); render(); });
 
+  $("sub").textContent = DATA.length + " verbetes, com glosas em português";
+  $("legend").innerHTML = "<span>Abreviaturas:</span>" + ORDER.map((k) => `<span><i>${POS[k][1]}</i> ${POS[k][0].toLowerCase()}</span>`).join("");
   renderChips();
   renderDir();
   render();
-  syncOffset();
 </script>
 
 </body></html>
