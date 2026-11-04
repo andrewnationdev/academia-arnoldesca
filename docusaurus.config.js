@@ -97,6 +97,11 @@ const config = {
           },
           {to: '/blog', label: 'Publicazioni', position: 'left'},
           {
+            href: 'https://academiaarnoldesca.vercel.app/iframes/arn-pt-dict.html',
+            label: 'Dizionaio Portoghese - Arnoldesco',
+            position: 'left',
+          },
+          {
             href: 'https://github.com/facebook/docusaurus',
             label: 'GitHub',
             position: 'right',
