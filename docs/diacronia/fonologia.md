@@ -6,7 +6,7 @@ I' ditongamiento l'è più esteso inde l'arnoldeco de ciò ch'el si verifica ind
 
 El v'è un processo di deletamiento de la vocale E finale dopo consonanti come L e N ch'el siembra essere collegato a la fonossintassi, secondo la consonante indela parola seguente. Ciò l'è, se la parola seguente la fuorma uma combinazion che non l'è possibile fonetticamiente, la E la rimane lì.
 
-Li dittongui antichi AE, OE ed AU li subiscen simpieficazion: a.e. *oro* od *uoro* < AURUM; *orechia* od *uorechia* < AURICULAM (in esto caso, l'affietta la parola i' fenomeno de la tendenza di dittongazion generalizzata). Qualche I e U tonichi od atoni li devegnen E ed O: a.e. *orechia* od *uorechia* < AURICULAM; *secco* < SICCUM; *verde* < VIRIDEM. Este quattro vocali le son instabili attravierso l'istoia de la lingua.
+Li dittongui antichi AE, OE ed AU li subiscen simpieficazion: a.e. *oro* od *uoro* < AURUM; *orechia* od *uorechia* < AURICULAM (in esto caso, l'affietta la parola i' fenomeno de la tendenza di dittongazion generalizzata). Qualche I ed U tonichi od atoni li devegnen E ed O: a.e. *orechia* od *uorechia* < AURICULAM; *secco* < SICCUM; *verde* < VIRIDEM. Este quattro vocali le son instabili attravierso l'istoia de la lingua.
 
 ## Consonantismo
 
