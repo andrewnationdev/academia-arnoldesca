@@ -27,3 +27,8 @@ cultura:
   label: Cultura
   permalink: /cultura
   description: Cultura arnoldesca
+
+tecnologia:
+  label: Tecnologia
+  permalink: /tecnologia
+  description: Tecnologia e cuose modierne
