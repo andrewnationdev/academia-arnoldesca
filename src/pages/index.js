@@ -16,6 +16,9 @@ function HomepageHeader() {
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div>
+          <img src="https://academiaarnoldesca.vercel.app/img/flag.jpeg"/>
+        </div>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
