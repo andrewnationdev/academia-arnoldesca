@@ -17,7 +17,7 @@ function HomepageHeader() {
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div>
-          <img src="https://academiaarnoldesca.vercel.app/img/flag.jpeg"/>
+          <img src="https://academiaarnoldesca.vercel.app/img/flag.jpeg" width="50%"/>
         </div>
         <div className={styles.buttons}>
           <Link
