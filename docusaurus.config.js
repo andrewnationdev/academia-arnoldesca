@@ -78,15 +78,15 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/flag.jpeg',
       colorMode: {
         respectPrefersColorScheme: true,
       },
       navbar: {
         title: 'Academia Arnoldesca',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Academia Arnoldesca',
+          src: 'img/flag.jpeg',
         },
         items: [
           {
