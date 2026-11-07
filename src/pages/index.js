@@ -13,7 +13,7 @@ function HomepageHeader() {
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
         <div>
-          <img style="border-width: 20px" src="https://academiaarnoldesca.vercel.app/img/flag.jpeg" width="50%"/>
+          <img style="border-radius: 20px" src="https://academiaarnoldesca.vercel.app/img/flag.jpeg" width="50%"/>
         </div>
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
