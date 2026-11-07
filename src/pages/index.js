@@ -12,13 +12,13 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
+        <div>
+          <img style="border-width: 20px" src="https://academiaarnoldesca.vercel.app/img/flag.jpeg" width="50%"/>
+        </div>
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div>
-          <img src="https://academiaarnoldesca.vercel.app/img/flag.jpeg" width="50%"/>
-        </div>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
