@@ -2,6 +2,17 @@
 
 La sintassi e regole di costruzion di proposizioni semplici e complesse in arnoldesco.
 
+## Clausula e Struttura di Clausula
+### Clausule Relative
+Le clausule relative le son clausule che la modifica un sustantivo indela clausula principale e la si riferisce ad esso co l'aiuto dun pronome relativo e li principali 'i son ***che*** e ***cui***. ***Che*** el si usa quando lo sustantivo a cui el pronome el si riferisce l'è lo soggetto o l'oggetto diretto indela clausa relativa. Tuttavia, se l'è l'oggetto indiretto o preceduto da una preposizion, ciò l'è, a l'interno dun sintagma preposizional, donde el si usa ***cui***.
+
+a.e.:
+
+- La moglier ***<u>che</u> i amo*** l'è tediesca. (amar + COD)
+- La moglier ***<u>di cui i parlo</u>*** l'è tediesca (parlar di + COI)
+
+Le clausule relative le funzionan sintatticamiente come sustantivi.
+
 ## Concordanza
 
 ### Concordanza innela Terza Persona
