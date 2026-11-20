@@ -5,7 +5,7 @@ authors: [andrew]
 tags: [cultura]
 ---
 
-![Tricolor]()
+![Tricolor](https://www.countryaah.com/wp-content/uploads/2020/08/Flag-of-Italy.jpg)
 
 L'italian l'è la lingua de l'opera e de lo Rinascimiento, di Dante e Fellini, de _la dolce vita_. Anco se nunca tu studiasti o se tu parli arnoldesco, tu lo parli un poco: _ciao_, _pizza_, _piano_, _paparazzi_, ed el ne v'è più!
 
