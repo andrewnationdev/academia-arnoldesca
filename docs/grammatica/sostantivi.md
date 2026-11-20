@@ -1,4 +1,4 @@
-# Li Sostantivi - Genere, Plurali ed Articoli
+# Sostantivi - Genere, Plurali ed Articoli
 
 L'arnoldesco el possiede tre genera grammaticale: masculino, feminino e neutro. Le vocabula neutra la si declina come le masculina nel singolar e come le feminina nel plural.
 
